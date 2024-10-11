@@ -7,9 +7,11 @@ public struct Stage
 {
     [SerializeField, Range(0.3f, 1f)] private float _spawnTimeObstacle;
     [SerializeField, Range(1f, 3f)] private float _minToNextStage;
+    [SerializeField, Range(1f, 2f)] private float _multipleSpeed;
 
     public float SpawnTimeObstacle => _spawnTimeObstacle;
     public float MinToNextStage => _minToNextStage * 60;
+    public float MultipleSpeed => _multipleSpeed;
 }
 
 public class ObstacleSpawner : MonoBehaviour
@@ -61,7 +63,7 @@ public class ObstacleSpawner : MonoBehaviour
         random = UnityEngine.Random.Range(0, _spawnPoints.Length);
         _currentSpawnPoint = _spawnPoints[random];
 
-        _currentObstacle.Spawn(_currentSpawnPoint.position);
+        _currentObstacle.Spawn(_currentSpawnPoint.position, _stages[_currentStage].MultipleSpeed);
     }
 
     public void StopCurrentObstacle()

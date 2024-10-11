@@ -11,11 +11,16 @@ public class Restarter : MonoBehaviour
 
     public void Restart()
     {
-        _scoreManager.ClearScore();
+        if (_scoreManager != null)
+            _scoreManager.ClearScore();
 
-        _obstacleSpawner.ClearCurrentObstacle();
+        if (_obstacleSpawner != null)
+            _obstacleSpawner.ClearCurrentObstacle();
 
-        _player.transform.position = _respawnPosition;
-        _player.Respawn();
+        if (_player != null)
+        {
+            _player.transform.position = _respawnPosition;
+            _player.Respawn();
+        }
     }
 }

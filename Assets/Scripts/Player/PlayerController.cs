@@ -5,9 +5,11 @@ using System;
 [RequireComponent(typeof(Player))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private InputController _inputController;
+
     [SerializeField] private Player _player;
 
-    [SerializeField, Range(0.2f, 0.21f)] private float _doubleClickTime = .2f;
+    [SerializeField, Range(0.1975f, 0.21f)] private float _doubleClickTime = .2f;
     private float _currentHoldButtonTime = 0f;
 
     private int _clickCounter = 0;
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown(GlobalStringVars.HORIZONTAL) || Input.GetButtonDown(GlobalStringVars.VERTICAL))
+        if (_inputController.HorizontalAxisDown() /*Input.GetButtonDown(GlobalStringVars.HORIZONTAL)*/ || _inputController.VerticalAxisDown() /*Input.GetButtonDown(GlobalStringVars.VERTICAL)*/)
         {
             if (_player.IsPossibleSwitchDiretion)
             {
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (Input.GetButtonDown(GlobalStringVars.ACTION))
+            if (_inputController.ActionInputDown())
             {
                 if (_clickCounter == 0)
                 {
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (Input.GetButtonUp(GlobalStringVars.ACTION))
+            if (_inputController.ActionInputUp())
             {
                 _currentHoldButtonTime = 0f;
             }
@@ -66,18 +68,18 @@ public class PlayerController : MonoBehaviour
     {
         float inputResult = 0;
 
-        if (Input.GetButtonDown(GlobalStringVars.HORIZONTAL))
+        if (_inputController.HorizontalAxisDown()/*Input.GetButtonDown(GlobalStringVars.HORIZONTAL)*/)
         {
             _vertical = 0;
-            inputResult = Input.GetAxisRaw(GlobalStringVars.HORIZONTAL);
+            inputResult = _inputController.HorizontalAxisRaw();
 
             if (inputResult != 0)
                 _horizontal = inputResult;
         }
-        else if (Input.GetButtonDown(GlobalStringVars.VERTICAL))
+        else if (_inputController.VerticalAxisDown()/*Input.GetButtonDown(GlobalStringVars.VERTICAL)*/)
         {
             _horizontal = 0;
-            inputResult = Input.GetAxisRaw(GlobalStringVars.VERTICAL);
+            inputResult = _inputController.VerticalAxisRaw();
 
             if (inputResult != 0)
                 _vertical = inputResult;

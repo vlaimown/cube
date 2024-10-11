@@ -15,11 +15,11 @@ public class MoveableObstacle : MonoBehaviour
 
     private bool _obstacleDelivered = false;
 
-    public void Spawn(Vector3 spawnPosition)
+    public void Spawn(Vector3 spawnPosition, float multipleSpeed = 1f)
     {
         transform.position = spawnPosition;
 
-        _currentSpeed = _speed;
+        _currentSpeed = _speed * multipleSpeed;
         SetRotation(spawnPosition);
         SetMoveDirection(spawnPosition);
 
