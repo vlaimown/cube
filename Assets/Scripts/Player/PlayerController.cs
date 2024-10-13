@@ -56,9 +56,7 @@ public class PlayerController : MonoBehaviour
             }
 
             if (_inputController.ActionInputUp())
-            {
                 _currentHoldButtonTime = 0f;
-            }
         }
 
         MovePlayer();
@@ -89,6 +87,7 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer()
     {
         Vector3 moveDirection = new Vector3(_horizontal, 0, _vertical);
+        _player.Rotate(moveDirection);
         _player.Move(moveDirection);
     }
 

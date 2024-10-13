@@ -15,9 +15,11 @@ public class Player : MonoBehaviour
     [SerializeField] private UnityEvent _death;
 
     private Rigidbody _rb;
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
 
     private ParticleSystem _particles;
+
+    private AudioSource _deathSound;
 
     private float _currentSpeed = 0;
     private float _currentInputFreeze = 0;
@@ -32,9 +34,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
-
         _particles = GetComponentInChildren<ParticleSystem>();
+        _deathSound = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -59,15 +60,28 @@ public class Player : MonoBehaviour
     {
         _isDead = false;
         _isStopped = true;
-
         _rb.isKinematic = false;
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
+
+        _animator.SetBool("Dead", false);
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 
     public void Move(Vector3 direction)
     {
         if (!_isDead && !_isStopped)
             transform.position += direction * _currentSpeed * Time.deltaTime;
+    }
+
+    public void Rotate(Vector3 direction)
+    {
+        if (direction.x == 1)
+            transform.eulerAngles = new Vector3(0, 90, 0);
+        else if (direction.x == -1)
+            transform.eulerAngles = new Vector3(0, -90, 0);
+        else if (direction.z == 1)
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        else if (direction.z == -1)
+            transform.eulerAngles = new Vector3(0, -180, 0);
     }
 
     public void FreezeMoveInput()
@@ -104,15 +118,14 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-        _animator.SetTrigger("Death");
+        _animator.SetBool("Dead", true);
         _isDead = true;
 
         _death.Invoke();
-
         _particles.Play();
+        _deathSound.Play();
 
         _rb.isKinematic = true;
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
     private IEnumerator ResetInputFreeze()
