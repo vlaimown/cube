@@ -63,7 +63,6 @@ public class Player : MonoBehaviour
         _rb.isKinematic = false;
 
         _animator.SetBool("Dead", false);
-        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 
     public void Move(Vector3 direction)
@@ -74,14 +73,14 @@ public class Player : MonoBehaviour
 
     public void Rotate(Vector3 direction)
     {
-        if (direction.x == 1)
-            transform.eulerAngles = new Vector3(0, 90, 0);
-        else if (direction.x == -1)
-            transform.eulerAngles = new Vector3(0, -90, 0);
-        else if (direction.z == 1)
+        float turnDirectionX = 90f;
+
+        if (direction.z == 1)
             transform.eulerAngles = new Vector3(0, 0, 0);
         else if (direction.z == -1)
             transform.eulerAngles = new Vector3(0, -180, 0);
+        else if (direction.x == 1 || direction.x == -1)
+            transform.eulerAngles = new Vector3(0, turnDirectionX * direction.x, 0);
     }
 
     public void FreezeMoveInput()
