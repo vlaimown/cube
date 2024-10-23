@@ -397,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 72137353}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.5, y: -3.5, z: 3.78}
+  m_LocalPosition: {x: 14, y: -3.5, z: 3.78}
   m_LocalScale: {x: 1, y: 5, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2200,6 +2200,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459130612}
   m_CullTransparentMesh: 1
+--- !u!1 &474956725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 474956727}
+  - component: {fileID: 474956726}
+  m_Layer: 0
+  m_Name: Restarter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &474956726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474956725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2ff432fef23d945896bbbb736ead32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startScreen: {fileID: 1740921143}
+  _player: {fileID: 976733383}
+  _obstacleSpawner: {fileID: 65292062}
+  _scoreManager: {fileID: 1189911048}
+  _respawnPosition: {x: 0, y: -3.2, z: 2.75}
+--- !u!4 &474956727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474956725}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488619641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,10 +2473,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 675199991}
   - {fileID: 1437871091}
-  - {fileID: 72137355}
   - {fileID: 1806862156}
+  - {fileID: 675199991}
+  - {fileID: 72137355}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574962567
@@ -2455,7 +2504,7 @@ Transform:
   m_GameObject: {fileID: 574962567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5, z: 12}
+  m_LocalPosition: {x: 0, y: -3.5, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2988,7 +3037,7 @@ Transform:
   m_GameObject: {fileID: 675199989}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.5, y: -3.5, z: 3.78}
+  m_LocalPosition: {x: -14, y: -3.5, z: 3.78}
   m_LocalScale: {x: 1, y: 5, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4233,7 +4282,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3987491, y: 0, z: 0, w: 0.91706014}
-  m_LocalPosition: {x: 0, y: 2.25, z: -3.05}
+  m_LocalPosition: {x: 0, y: 2.33, z: -3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4730,7 +4779,6 @@ GameObject:
   - component: {fileID: 1095681631}
   - component: {fileID: 1095681630}
   - component: {fileID: 1095681629}
-  - component: {fileID: 1095681632}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -4825,7 +4873,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1095681632}
+      - m_Target: {fileID: 474956726}
         m_TargetAssemblyTypeName: Restarter, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -4899,23 +4947,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095681627}
   m_CullTransparentMesh: 1
---- !u!114 &1095681632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095681627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d2ff432fef23d945896bbbb736ead32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startScreen: {fileID: 1740921143}
-  _player: {fileID: 976733383}
-  _obstacleSpawner: {fileID: 65292062}
-  _scoreManager: {fileID: 1189911048}
-  _respawnPosition: {x: 0, y: -3.2, z: 2.75}
 --- !u!1 &1127474695
 GameObject:
   m_ObjectHideFlags: 0
@@ -6319,7 +6350,7 @@ Transform:
   m_GameObject: {fileID: 1413261687}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5, z: -6}
+  m_LocalPosition: {x: 0, y: -3.5, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6352,7 +6383,7 @@ Transform:
   m_GameObject: {fileID: 1437871090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -3.5, z: 15}
+  m_LocalPosition: {x: 0, y: -3.5, z: 18}
   m_LocalScale: {x: 1, y: 5, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6970,7 +7001,7 @@ Transform:
   m_GameObject: {fileID: 1549631148}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: -3.5, z: 4.2}
+  m_LocalPosition: {x: -12, y: -3.5, z: 4.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7845,7 +7876,7 @@ Transform:
   m_GameObject: {fileID: 1806862155}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -3.5, z: -7}
+  m_LocalPosition: {x: 0, y: -3.5, z: -10}
   m_LocalScale: {x: 1, y: 5, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12973,7 +13004,7 @@ GameObject:
   - component: {fileID: 1869255286}
   - component: {fileID: 1869255285}
   m_Layer: 0
-  m_Name: Music
+  m_Name: Background Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12991,7 +13022,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 401875237789140360, guid: 6a082441962eb2142bdef474a1a0e6db, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1113c4ce369b0eb48b3a904cac686279, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13530,7 +13561,7 @@ Transform:
   m_GameObject: {fileID: 1994506444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: -3.5, z: 4.2}
+  m_LocalPosition: {x: 12, y: -3.5, z: 4.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14052,6 +14083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Move Obstacle (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4216061426103600574, guid: 571dc56f1ed6d424e89242fde226c551, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5672625355232454096, guid: 571dc56f1ed6d424e89242fde226c551, type: 3}
       propertyPath: _obstacleDenied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14081,6 +14116,10 @@ PrefabInstance:
     - target: {fileID: 6903510338714951975, guid: 201d5d94ca486bd49b929589deb5713c, type: 3}
       propertyPath: m_Name
       value: Move Obstacle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903510338714951975, guid: 201d5d94ca486bd49b929589deb5713c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8264268045948599713, guid: 201d5d94ca486bd49b929589deb5713c, type: 3}
       propertyPath: _obstacleDenied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -14205,6 +14244,10 @@ PrefabInstance:
     - target: {fileID: 8581898446428134973, guid: 942dfefe3bdad6e4c8cdf58e72d1e99d, type: 3}
       propertyPath: m_Name
       value: Move Obstacle (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581898446428134973, guid: 942dfefe3bdad6e4c8cdf58e72d1e99d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14375,6 +14418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Move Obstacle (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3275379935337622296, guid: 4bbf6cb1491dc6b4d97c95c99b9e4c54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3819575430372009479, guid: 4bbf6cb1491dc6b4d97c95c99b9e4c54, type: 3}
       propertyPath: _obstacleDenied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14496,6 +14543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Move Obstacle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9099647736812458860, guid: 97ebf563a8627254c8d2f9ab19fbbc63, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14520,6 +14571,10 @@ PrefabInstance:
     - target: {fileID: 2269140635212047897, guid: b415d163a5096ea41a9190439b47f155, type: 3}
       propertyPath: m_Name
       value: Move Obstacle (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269140635212047897, guid: b415d163a5096ea41a9190439b47f155, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4521370377540743382, guid: b415d163a5096ea41a9190439b47f155, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14589,6 +14644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Move Obstacle (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2142212895643857914, guid: 765c78b273d97d74a9c94077f70ec210, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2571430554790443266, guid: 765c78b273d97d74a9c94077f70ec210, type: 3}
       propertyPath: _obstacleDenied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14657,8 +14716,9 @@ SceneRoots:
   - {fileID: 976733381}
   - {fileID: 1552254425}
   - {fileID: 1671255726}
-  - {fileID: 697595134}
   - {fileID: 1189911047}
   - {fileID: 1712410810}
-  - {fileID: 1869255286}
   - {fileID: 1127474697}
+  - {fileID: 474956727}
+  - {fileID: 1869255286}
+  - {fileID: 697595134}

@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (_inputController.HorizontalAxisDown() /*Input.GetButtonDown(GlobalStringVars.HORIZONTAL)*/ || _inputController.VerticalAxisDown() /*Input.GetButtonDown(GlobalStringVars.VERTICAL)*/)
+        if (_inputController.HorizontalAxisDown() || _inputController.VerticalAxisDown())
         {
             if (_player.IsPossibleSwitchDiretion)
             {
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         float inputResult = 0;
 
-        if (_inputController.HorizontalAxisDown()/*Input.GetButtonDown(GlobalStringVars.HORIZONTAL)*/)
+        if (_inputController.HorizontalAxisDown())
         {
             _vertical = 0;
             inputResult = _inputController.HorizontalAxisRaw();
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             if (inputResult != 0)
                 _horizontal = inputResult;
         }
-        else if (_inputController.VerticalAxisDown()/*Input.GetButtonDown(GlobalStringVars.VERTICAL)*/)
+        else if (_inputController.VerticalAxisDown())
         {
             _horizontal = 0;
             inputResult = _inputController.VerticalAxisRaw();
